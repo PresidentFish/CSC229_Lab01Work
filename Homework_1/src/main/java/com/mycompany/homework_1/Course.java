@@ -6,13 +6,21 @@ public class Course {
     int ID;
     String Name;
     int Code;
-    
-public Course(int id, String name, int code) {
-   id = 229;
-    name = "Data structures and Algorithms 1";
-    code = 229;
+
+//Default Constructor    
+public Course() {
+    ID = 229;
+    Name = "Data structures and Algorithms 1";
+    Code = 229;
         
   }
+//Overload
+Course(int num1, String str, int num2){
+        ID = 111;
+        Name = "Algebrah";
+        Code = 111;
+}
+        
      // ID Getter
   public int getID() {
     return ID;
@@ -34,14 +42,25 @@ public Course(int id, String name, int code) {
   } 
   
  // CODE Getter
-  public String getCode() {
-    return Name;
+  public int getCode() {
+    return Code;
   }
 
   // CODE Setter
   public void setCode(int newCode) {
     this.Code = newCode;
   } 
-    
+  
+  
+  public static void main(String args[] ) {
+    Course course1 = new Course();
+    System.out.println("Course ID is:" + course1.getID());
+    System.out.println("Course name is:" + course1.getName());
+    System.out.println("Course code is:" + course1.getCode());
+
+    Course course2 = new Course(111, "BCS111", 102);
+    System.out.println("Course ID is:" + course2.getID());
+    System.out.println("Course name is:" + course2.getName());
+    System.out.println("Course code is:" + course2.getCode());}
 
 }
