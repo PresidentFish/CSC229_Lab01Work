@@ -5,27 +5,50 @@ import java.io.*;
 import java.util.*;
 
 public class Task1 {
-    
-    static int sumOfallPrimes(int n)
-    {
-        boolean prime[]=new boolean[n + 1];
-        Arrays.fill(prime, true);
-      
-        for (int p = 2; p * p <= n; p++) {
-            if (prime[p] == true) {
-                for (int i = p * 2; i <= n; i += p)
-                    prime[i] = false;
-            }
-        }
-        int sum = 0;
-        for (int i = 2; i <= n; i++)
-            if (prime[i])
-                sum += i;
-        return sum;
-    }
-    public static void main(String args[])
-    {
-        int n = 100;
-        System.out.print(sumOfallPrimes(n));
-    }
+
+	public static void main(String[] args) 
+	{
+		int i, number = 1, count, sum = 0, sum2 = 0, sum3 =0;//declaring varibles
+		
+		while(number <= 100)
+		{
+			count = 0;
+			i = 2;
+		    while(i <= number/2 )
+		    {
+		    	if(number % i == 0)
+		    	{
+		    		count++;
+		    		break;
+		    	}
+		    	i++;
+		    }
+                    //Where we find the numbers that are prime
+		    if(count == 0 && number != 1 )
+		    {
+		    	sum = sum + number;
+		    }
+                    
+                    //Where we find the numbers with a 3
+                    if(number > 0)
+                    {
+                    if(number % 10 == (3) )
+                        sum2 = sum2 + number;
+                    
+                    }
+                    
+                    //Where we find the numbers with a 3 or 5
+                    if(number > 0)
+                    {
+                    if(number % 10 == (3|5) )
+                        sum3 = sum3 + number;
+                    
+                    }
+                    
+		    number++;
+		}
+                System.out.println("\nThe Sum of Prime Numbers from 1 to 100 = " + sum);
+                System.out.println("The Sum of prime numbers with the digit 3 are = " + sum2);
+                System.out.println("The Sum of prime numbers with the digit 3 and are = " + sum3);
+	}
 }
